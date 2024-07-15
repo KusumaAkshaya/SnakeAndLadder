@@ -3,6 +3,12 @@
     color:  rgba(243, 225, 25, 0.984);
 }
 
+#turnDisplay{
+    text-align: center;
+    font-size: 25px;
+    color: cornsilk;
+}
+
 nav h1{
   font-family: 'Playwrite CU', cursive;
   font-optical-sizing: auto;

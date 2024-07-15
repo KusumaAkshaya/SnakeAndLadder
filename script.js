@@ -1,11 +1,16 @@
 var per1, per2;
 var dice;
-var player1Score = 1
-var player2Score = 1, player1Turn = true;
+var player1Score = 0
+var player2Score = 0, player1Turn = true;
 
 function moveCoin( coinNum, score){
-  var coin = document.getElementById(coinNum);
-  var x = score % 10 - 1; // calculate x-coordinate based on score
+  var coin = document.getElementById(coinNum)
+  if(score === 0){
+  coin.style.left = "475px"
+  coin.style.top = "665px"
+  } else{
+    score -= 1
+  var x = score % 10; // calculate x-coordinate based on score
   var y = Math.floor((score) / 10); // calculate y-coordinate based on score
   if ( y%2 === 0 ){
   coin.style.left = 525 + (x * 50) + "px"; // update coin position
@@ -14,6 +19,25 @@ function moveCoin( coinNum, score){
    coin.style.left = 975 - (x * 50) + "px"; // update coin position
    }
   coin.style.top = 675 -  (y * 50) + "px";
+}
+}
+
+function endGame(num){
+if(num === 1){
+  alert("Player 1 Wins! ")
+} else{
+  alert("Player 2 Wins!")
+}
+play1.remove()
+play2.remove()
+play1Scr.remove()
+play2Scr.remove()
+dice.remove()
+player1Score = 0
+player2Score = 0
+moveCoin("coin1", 0)
+moveCoin("coin2", 0)
+playGame()
 }
 
 function playGame(){
@@ -30,69 +54,142 @@ function playGame(){
    }
 }
 
+function ladder(){
+  if(player1Turn === true){
+    if(player1Score === 4){
+      player1Score = 25
+    }else if(player1Score === 13){
+      player1Score = 46
+    }else if(player1Score === 33){
+      player1Score = 49
+    }else if(player1Score === 50){
+      player1Score = 69
+    }else if(player1Score === 42){
+      player1Score = 63
+    }else if(player1Score === 62){
+      player1Score = 81
+    }else if(player1Score === 74){
+      player1Score = 92
+    }
+    moveCoin("coin1", player1Score)
+    document.getElementById("play1Scr").innerHTML = player1Score
+  } else {
+    if(player2Score === 4){
+      player2Score = 25
+    }else if(player2Score === 13){
+      player2Score = 46
+    }else if(player2Score === 33){
+      player2Score = 49
+    }else if(player2Score === 50){
+      player2Score = 69
+    }else if(player2Score === 42){
+      player2Score = 63
+    }else if(player2Score === 62){
+      player2Score = 81
+    }else if(player2Score === 74){
+      player2Score = 92
+    }
+    moveCoin("coin2", player2Score)
+    document.getElementById("play2Scr").innerHTML = player2Score
+  }
+
+}
+
 function snake(){
     if(player1Turn === true ){
       if(player1Score === 27){
-        moveCoin("coin1" , 5) 
+        player1Score = 5
       }else if(player1Score === 40){
-        moveCoin("coin1", 3)
+        player1Score = 3
       } else if(player1Score === 43){
-        moveCoin( "coin1",18 )
+        player1Score = 18
       } else if(player1Score === 54){
-        moveCoin("coin1", 31)
+        player1Score = 31
       } else if(player1Score === 66){
-        moveCoin("coin1", 45)
+        player1Score = 45
       } else if(player1Score === 76){
-        moveCoin("coin1", 58)
+        player1Score = 58
       } else if(player1Score === 89){
-        moveCoin("coin1", 53)
+        player1Score = 53
       } else if(player1Score === 99){
-        moveCoin("coin1",41 )
+        player1Score = 41
       } 
+      moveCoin("coin1", player1Score)
+      document.getElementById("play1Scr").innerHTML = player1Score
     } 
     else {
       if(player2Score === 27){
-        moveCoin("coin2" , 5) 
+        player2Score = 5
       }else if(player2Score === 40){
-        moveCoin("coin2", 3)
+        player2Score = 3
       } else if(player2Score === 43){
-        moveCoin( "coin2",18 )
+        player2Score = 18
       } else if(player2Score === 54){
-        moveCoin("coin2", 31)
+        player2Score = 31
       } else if(player2Score === 66){
-        moveCoin("coin2", 45)
+        player2Score = 45
       } else if(player2Score === 76){
-        moveCoin("coin2", 58)
+        player2Score = 58
       } else if(player2Score === 89){
-        moveCoin("coin2", 53)
+        player2Score = 53
       } else if(player2Score === 99){
-        moveCoin("coin2", 41)
+        player2Score = 41
       } 
+      moveCoin("coin2", player2Score)
+      document.getElementById("play2Scr").innerHTML = player2Score
     }
  }
 
 function moveRaa(number){
    document.getElementById("diceButton").innerHTML = "Throw Dice"
   if(player1Turn === true){
+    if(player1Score+number > 100){
+      number = 0
+    }
    player1Score += number;
    document.getElementById("play1Scr").innerHTML = player1Score
    document.getElementById("turnDisplay").innerHTML = "Player 2's turn"
    moveCoin("coin1", player1Score)
-  } else {
+   if(number === 6) {
+    document.getElementById("turnDisplay").innerHTML = "Player 1's turn";
+   }
+  } 
+  else {
+    if(player2Score + number > 100){
+      number = 0
+    }
     player2Score += number;
     document.getElementById("play2Scr").innerHTML = player2Score
     document.getElementById("turnDisplay").innerHTML = "Player 1's turn";
     moveCoin("coin2", player2Score)
+    if(number === 6) {
+      document.getElementById("turnDisplay").innerHTML = "Player 2's turn";
+     }
   }
+  
   if( player1Score === 27 || player1Score === 40 || player1Score === 43 || player1Score === 54 || player1Score === 66 || player1Score === 76 || player1Score === 89 || player1Score === 99 || player2Score === 27 || player2Score === 40 || player2Score === 43 || player2Score === 54 || player2Score === 66 || player2Score === 76 || player2Score === 89 || player2Score === 99 ) {
-    snake();
+    snake()
   }
+  if( player1Score === 4 || player1Score === 13 || player1Score === 33 ||player1Score === 50 ||player1Score === 42 || player1Score === 62 || player1Score === 74 || player1Score === 92 || player2Score === 4 || player2Score === 13 || player2Score === 33 ||player2Score === 50 ||player2Score === 42 || player2Score === 62 || player2Score === 74 || player2Score === 92  ){
+    ladder()
+  }
+  if(player1Score === 100 || player2Score === 100 ){
+     if(player1Score === 100){
+      document.getElementById("turnDisplay").innerHTML = "Player 1 Wins"
+      endGame(1)
+     } else {
+      document.getElementById("turnDisplay").innerHTML = "Player 2 Wins"
+      endGame(2)
+     }
+  }
+  if(number != 6 ){
   player1Turn = !player1Turn
+  }
 }
 
 
 function playTime(){
-     var number = Math.floor( Math.random()*5 + 1)
+     var number = Math.floor( Math.random()*6 + 1)
     document.getElementById("diceButton").innerHTML = number   
     setTimeout(() => moveRaa(number, player1Turn), 2000)
 }
