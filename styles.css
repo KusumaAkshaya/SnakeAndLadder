@@ -1,0 +1,105 @@
+.navi{
+    background-color: rgba(58, 145, 160, 0.825);
+    color:  rgba(243, 225, 25, 0.984);
+}
+
+nav h1{
+  font-family: 'Playwrite CU', cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+nav > div>  ul > li{
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+nav > div> ul > li> a:hover{
+    color: white;
+    background-color: rgb(233, 180, 115);
+    font-size: 26px;
+}
+
+
+#mainPage{
+    height: calc(100vh - 50px);
+    background-image: url('32.png');
+    background-size: cover;
+    background-color: rgba(85, 160, 148, 0.696);
+}
+
+#playbutton{
+    background-color: rgba(58, 145, 160, 0.825);
+    align-items: center;
+    padding: 0 30px; 
+    width: 360px;
+    margin: 280px 640px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+#playbutton:hover{
+    background-color: rgba(243, 225, 25, 0.984);
+    color:rgba(58, 145, 160, 0.825);
+    border: 2px solid rgba(58, 145, 160, 0.825);
+    border-radius: 20px;
+}
+
+#board{
+    height: 500px;
+    width: 500px;
+    background-image: url('./board.png');
+    background-size: cover;
+    display: none;
+    margin-left: 500px;
+    margin-top: 50px;
+}
+
+#list{
+    list-style: none;
+    display: flex;
+    text-align: center;
+}
+
+div{
+    overflow: hidden;
+}
+
+#list > li {
+    font-size: 30px;
+    margin-left: 340px;
+}
+
+#player > button{
+    background-color: rgba(221, 75, 75, 0.947);
+    border: 2px solid #ffffff ;
+    border-radius: 20px;
+    width: 200px;
+    color: #ffffff;
+    font-size: 30px;
+    margin-left: 660px;
+}
+
+.coin {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position:absolute;
+  }
+
+#coin1{
+    position: absolute;
+    top: 665px;
+    left:475px;
+    background-color: rgb(132, 5, 5);
+    border: 3px solid black;
+}
+
+#coin2{
+    position: absolute;
+    top: 665px;
+    left: 475px;
+    background-color: cornflowerblue;
+    border: 3px solid black;
+}
