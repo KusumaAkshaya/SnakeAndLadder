@@ -51,22 +51,22 @@ function snake(){
       } 
     } 
     else {
-      if(player1Score === 27){
-        moveCoin("coin1" , 5) 
-      }else if(player1Score === 40){
-        moveCoin("coin1", 3)
-      } else if(player1Score === 43){
-        moveCoin( "coin1",18 )
-      } else if(player1Score === 54){
-        moveCoin("coin1", 31)
-      } else if(player1Score === 66){
-        moveCoin("coin1", 45)
-      } else if(player1Score === 76){
-        moveCoin("coin1", 58)
-      } else if(player1Score === 89){
-        moveCoin("coin1", 53)
-      } else if(player1Score === 99){
-        moveCoin("coin1",41 )
+      if(player2Score === 27){
+        moveCoin("coin2" , 5) 
+      }else if(player2Score === 40){
+        moveCoin("coin2", 3)
+      } else if(player2Score === 43){
+        moveCoin( "coin2",18 )
+      } else if(player2Score === 54){
+        moveCoin("coin2", 31)
+      } else if(player2Score === 66){
+        moveCoin("coin2", 45)
+      } else if(player2Score === 76){
+        moveCoin("coin2", 58)
+      } else if(player2Score === 89){
+        moveCoin("coin2", 53)
+      } else if(player2Score === 99){
+        moveCoin("coin2", 41)
       } 
     }
  }
